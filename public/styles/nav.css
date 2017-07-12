@@ -1,0 +1,32 @@
+#nav-bar {
+  position : fixed;
+  display: flex;
+  width : 100%;
+  padding-left : 2em;
+  color : #e8fdff;
+  background: #00a087;
+  z-index: 1;
+}
+
+#nav-bar .header{
+  vertical-align: middle;
+  font-size : 35px;
+  line-height: 70px;
+  margin-left: 10px;
+}
+
+#nav-bar button{
+  margin-left: 60%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 130px;
+  background: white;
+  font-size: 20px;
+}
+
+.focused {
+  color: #37b29f;
+  background-color: #e7fdff;
+}

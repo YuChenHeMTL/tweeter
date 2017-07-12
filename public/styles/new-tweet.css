@@ -1,0 +1,51 @@
+section.new-tweet {
+  display: none;
+  height: 160px;
+  margin-top: 120px;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  background: #eeeeee;
+  border: 2px solid #e8e5e5;
+}
+
+section.new-tweet h2{
+  padding-top : 0px;
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+section textarea {
+  padding: 5px;
+  width:100%;
+}
+
+section input {
+  float:left;
+}
+
+section .counter {
+  float: right;
+  margin-right: 5px;
+  font-family: Roboto Condensed;
+}
+
+section .notValid {
+  color : red;
+}
+
+section .inputTooLarge {
+  text-align: center;
+  margin-top: 1px;
+  display: none;
+  color: red;
+}
+
+section .inputEmpty{
+  text-align: center;
+  margin-top: 1px;
+  display: none;
+  color: red;
+}

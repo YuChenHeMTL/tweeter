@@ -18,8 +18,39 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  font-family: Roboto Condensed, sans-serif;
+  display: block;
 }
 
+main {
+  width: 450px;
+  height: 100%;
+  border: 5px black;
+  margin: 0 auto;
+  padding-top: 60px;
+  background: white;
+  text-align: center;
+}
+
+.btn.flag::before{
+  font-family: fontAwesome;
+  content: "\f024\00a0";
+}
+
+.btn.rotate::before{
+  font-family: fontAwesome;
+  content: "\f079\00a0";
+}
+
+.btn.heart::before{
+  font-family: fontAwesome;
+  content: "\f004\00a0";
+}
+
+button.compose::before{
+  font-family: fontAwesome;
+  content: "\f044\00a0";
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

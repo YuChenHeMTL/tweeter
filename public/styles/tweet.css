@@ -1,0 +1,112 @@
+
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #eee;
+  opacity: 0.6;
+}
+article.tweet header{
+  text-align: left;
+  padding: 10px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+article.tweet header h2{
+  line-height: 10px;
+  margin-top: -40px;
+  margin-left: 65px;
+}
+
+article.tweet header p{
+  margin: 0px;
+  margin-top: -30px;
+  line-height: 10px;
+  text-align: right;
+}
+
+article.tweet header img{
+  border-radius: 5px;
+}
+
+article.tweet main{
+  display: flex;
+  white-space: pre-line;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  height: 120px;
+  width: 384px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+article.tweet footer {
+  display: inline-block;
+  padding: 5px;
+  text-align: left;
+  background: white;
+  height: 50px;
+  line-height: 5px;
+}
+
+article.tweet footer div {
+  text-align: right;
+  margin-top: -15px;
+}
+
+article.tweet footer p {
+  margin-top: 10px;
+  display: block;
+  font-size: 13px;
+}
+
+.flex-item {
+  justify-content: right;
+}
+
+article.tweet:hover{
+  opacity: 1.0;
+}
+
+
+/*article.tweet:hover div{
+  display: block;
+  text-align: right;
+}*/
+
+div.footer-icons{
+  display: none;
+  margin-top: 15px;
+}
+
+
+div.footer-icons i {
+  font-style: normal;
+  color: #66c5b7;
+}
+
+div.footer-icons a{
+  text-decoration: none;
+}
+
+article.tweet:first-child {
+  margin-bottom: 20px;
+}
+article.tweet:last-child {
+  margin-top: 50px;
+}
+
+section#tweets-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
