@@ -14,6 +14,8 @@ It uses HTML and plain ol' CSS3 as basic structure and AJAX and JQuery to delive
  - chance
  - express
  - mongodb
+ 
+ And don't forget to install Sass
 
 ## Getting started
 
