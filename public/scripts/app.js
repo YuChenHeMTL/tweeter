@@ -5,53 +5,9 @@ $(document).ready(function (){
    * jQuery is already loaded
    * Reminder: Use (and do all your DOM work in) jQuery's document ready function
    */
-var data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1499811678334
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1499811401678
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
 
+//The main function that creates each tweets when it receives an object
+//it gives css attributes to elements as they are created
 
   function createTweetElement (obj){
       let article = $("<article>").addClass("tweet");
@@ -71,62 +27,76 @@ var data = [
       twheader.append(img, h2, pHandle);
       twmain.append(pContent);
       twfooter.append(pTime, divIcon);
-      article.append(twheader, twmain, twfooter)
+      article.append(twheader, twmain, twfooter);
     return article;
   }
+
+//function to display time on the bottom left of tweets
 
   function getTimeDifference (timeStart){
     let currentTime = new Date().getTime();
     let timeDifference = currentTime - timeStart;
-    timeDifference = Math.floor(timeDifference/1000 - 728);
+    timeDifference = Math.floor(timeDifference/1000 + 3);
     numberSeconds = timeDifference;
-    numberMinutes = Math.floor(timeDifference/60);
-    numberHours = Math.floor(timeDifference/60/60)
-    numberDays = Math.floor(timeDifference/60/60/24);
-    numberMonths = Math.floor(timeDifference/60/60/24/30);
-    numberYears = Math.floor(timeDifference/60/60/24/365);
+    numberMinutes = Math.floor(numberSeconds/60);
+    numberHours = Math.floor(numberMinutes/60);
+    numberDays = Math.floor(numberHours/24);
+    numberMonths = Math.floor(numberDays/30);
+    numberYears = Math.floor(numberDays/365);
     if (numberMonths < 12 && numberMonths > 0){
+      //if the number of months is between 12 and 0, display the number of months
       if (numberMonths === 1){
-        return numberMonths + " month ago"
+        return numberMonths + " month ago";
       } else {
-        return numberMonths + " months ago"
+        return numberMonths + " months ago";
       }
     } else if (numberDays < 30 && numberDays > 0) {
+      //if the number of days is between 30 and 0, display the number of days
+
       if (numberDays === 1){
-        return numberDays + " day ago"
+        return numberDays + " day ago";
       } else {
-        return numberDays + " days ago"
+        return numberDays + " days ago";
       }
 
     } else if (numberHours < 24 && numberHours > 0) {
+      //if the number of hours is between 24 and 0, display the number of hours
+
       if (numberHours === 1){
-      return numberHours + " hour ago"
+      return numberHours + " hour ago";
       } else {
-      return numberHours + " hours ago"
+      return numberHours + " hours ago";
       }
 
     } else if (numberMinutes < 60 && numberMinutes > 0){
+      //if the number of minutes is between 60 and 0, display the number of minutes
+
       if (numberMinutes === 1){
-      return numberMinutes + " minute ago"
+      return numberMinutes + " minute ago";
       } else {
-      return numberMinutes + " minutes ago"
+      return numberMinutes + " minutes ago";
       }
 
     } else if (numberSeconds < 60){
+      //if the number of seconds is between 60 and 0, display the number of seconds
+
       if (numberSeconds === 1){
-      return numberSeconds + " second ago"
+      return numberSeconds + " second ago";
       } else {
-      return numberSeconds + " seconds ago"
+      return numberSeconds + " seconds ago";
       }
 
     } else {
+      //if all of the options above doesnt count, display number of years
       if (numberYears === 1){
-      return numberYears + " year ago"
+      return numberYears + " year ago";
       } else {
-      return numberYears + " years ago"
+      return numberYears + " years ago";
       }
     }
   }
+
+  // render all tweet objects as real tweets
 
   function renderTweets (arr) {
     for (let i = 0; i < arr.length; i++){
@@ -135,24 +105,40 @@ var data = [
     }
   }
 
+  //calling the function renderTweets
   loadTweets();
+
+  // This function processes the textarea of the form of submission
+
   function submitData (){
     $("form").on("submit", function (event){
       event.preventDefault();
+
+      //prevent the automatic submission of the form
+
       let charCounter = $(this).closest(".new-tweet").find("textarea").val().length;
       if (charCounter === 0){
+
+        //if no character is entered, return "input empty" and don't submit
+
         $(".inputEmpty").slideDown(200, function (){
           setTimeout(function (){
-            $(".inputEmpty").slideUp(200)
-          }, 500)
-        })
+            $(".inputEmpty").slideUp(200);
+          }, 500);
+        });
       } else if (charCounter > 140){
+
+        //if character length is bigger than 140, return "input too large" and don't submit
+
         $(".inputTooLarge").slideDown(200, function (){
           setTimeout(function (){
-            $(".inputTooLarge").slideUp(200)
-          }, 500)
-        })
+            $(".inputTooLarge").slideUp(200);
+          }, 500);
+        });
       } else {
+
+        //if successful, POST data in ajax
+
         $.ajax({
         url: '/tweets',
         method: 'POST',
@@ -162,13 +148,17 @@ var data = [
           loadTweets();
           // loadLastTweet();
           }
-        })
+        });
         $(this).closest(".new-tweet").find("textarea").val("");
+        //reset the textarea after successful POST
       }
-    })
+    });
   }
 
-  submitData()
+  // calling the function
+  submitData();
+
+  //Function that transforms all tweet objects in the database into actual tweets
 
   function loadTweets(){
   $.ajax({
@@ -176,20 +166,22 @@ var data = [
     method: 'GET',
     success: function (alltweets) {
       renderTweets(alltweets);
-      }
-    });
-  }
-  function loadLastTweet(){
-  $.ajax({
-    url: '/tweets',
-    method: 'GET',
-    success: function (alltweets) {
-      console.log([alltweets[alltweets.length -1]])
-      renderTweets([alltweets[alltweets.length -1]]);
+      $(".counter").text(140);
       }
     });
   }
 
-})
+  // // backup plan
+  // function loadLastTweet(){
+  // $.ajax({
+  //   url: '/tweets',
+  //   method: 'GET',
+  //   success: function (alltweets) {
+  //     console.log([alltweets[alltweets.length -1]]);
+  //     renderTweets([alltweets[alltweets.length -1]]);
+  //     }
+  //   });
+  // }
+});
 
 

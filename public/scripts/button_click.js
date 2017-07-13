@@ -13,3 +13,8 @@ $(document).ready(function (){
     }
   })
 })
+
+// This transforms the page when the compose button is clicked
+// - The compose form is hidden.
+// - When the button is clicked, the page scrolls to the top, the button becomes green and the form slides down.
+// - When the button is pressed again, the form slides up and the button becomes white and black.

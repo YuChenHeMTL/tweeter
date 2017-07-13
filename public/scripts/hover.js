@@ -6,3 +6,6 @@ $(document).ready(function (){
     $(this).find(".footer-icons").hide()
   })
 })
+
+// This shows the icons when the user mouse hovers a tweet.
+// And when the mouse leaves, it hides the icons.
