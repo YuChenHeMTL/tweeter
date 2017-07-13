@@ -33,10 +33,15 @@ $(document).ready(function (){
 
 //function to display time on the bottom left of tweets
 
-  function getTimeDifference (timeStart){
+  function getTimeDifference (timeCreated){
     let currentTime = new Date().getTime();
-    let timeDifference = currentTime - timeStart;
-    timeDifference = Math.floor(timeDifference/1000 + 3);
+    let timeDifference;
+    if (currentTime > timeCreated) {
+    timeDifference = currentTime - timeCreated;
+    } else {
+    timeDifference = timeCreated - currentTime;
+    }
+    timeDifference = Math.floor(timeDifference/1000);
     numberSeconds = timeDifference;
     numberMinutes = Math.floor(numberSeconds/60);
     numberHours = Math.floor(numberMinutes/60);
@@ -171,17 +176,6 @@ $(document).ready(function (){
     });
   }
 
-  // // backup plan
-  // function loadLastTweet(){
-  // $.ajax({
-  //   url: '/tweets',
-  //   method: 'GET',
-  //   success: function (alltweets) {
-  //     console.log([alltweets[alltweets.length -1]]);
-  //     renderTweets([alltweets[alltweets.length -1]]);
-  //     }
-  //   });
-  // }
 });
 
 
