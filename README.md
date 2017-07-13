@@ -10,12 +10,10 @@ It uses HTML and plain ol' CSS3 as basic structure and AJAX and JQuery to delive
 !["Hovered tweets"](https://github.com/YuChenHeMTL/tweeter/blob/master/docs/hovered_tweet.png)
 ## Dependencies
 
-- Node.js
-- Express
-- EJS
-- bcrypt
-- body-parser
-- cookie-session
+ - body-parser
+ - chance
+ - express
+ - mongodb
 
 ## Getting started
 
