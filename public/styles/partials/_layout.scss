@@ -13,6 +13,7 @@ html {
 /*
  * Global layout stuff
  */
+$Awesome: fontAwesome;
 
 body {
   margin: 0;
@@ -32,23 +33,26 @@ main {
   text-align: center;
 }
 
-.btn.flag::before{
-  font-family: fontAwesome;
-  content: "\f024\00a0";
-}
+.btn{
 
-.btn.rotate::before{
-  font-family: fontAwesome;
-  content: "\f079\00a0";
-}
+  .flag::before{
+    font-family: $Awesome;
+    content: "\f024\00a0";
+  }
 
-.btn.heart::before{
-  font-family: fontAwesome;
-  content: "\f004\00a0";
+  .rotate::before{
+    font-family: $Awesome;
+    content: "\f079\00a0";
+  }
+
+  .heart::before{
+    font-family: $Awesome;
+    content: "\f004\00a0";
+  }
 }
 
 button.compose::before{
-  font-family: fontAwesome;
+  font-family:$Awesome;
   content: "\f044\00a0";
 }
 /*

@@ -1,0 +1,210 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+  font-family: Roboto Condensed, sans-serif;
+  display: block; }
+
+main {
+  width: 450px;
+  height: 100%;
+  border: 5px black;
+  margin: 0 auto;
+  padding-top: 60px;
+  background: white;
+  text-align: center; }
+
+.btn .flag::before {
+  font-family: fontAwesome;
+  content: "\f024\00a0"; }
+.btn .rotate::before {
+  font-family: fontAwesome;
+  content: "\f079\00a0"; }
+.btn .heart::before {
+  font-family: fontAwesome;
+  content: "\f004\00a0"; }
+
+button.compose::before {
+  font-family: fontAwesome;
+  content: "\f044\00a0"; }
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+#nav-bar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding-left: 2em;
+  color: #e8fdff;
+  background: #00a087;
+  z-index: 1; }
+  #nav-bar .header {
+    vertical-align: middle;
+    font-size: 35px;
+    line-height: 70px;
+    margin-left: 10px; }
+  #nav-bar button {
+    margin-left: 60%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-align: center;
+    width: 130px;
+    background: white;
+    font-size: 20px;
+    outline: 0; }
+
+.focused {
+  color: #37b29f;
+  background-color: #e7fdff; }
+
+section.new-tweet {
+  display: none;
+  height: 160px;
+  margin-top: 120px;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  background: #eeeeee;
+  border: 2px solid #e8e5e5; }
+
+section.new-tweet h2 {
+  padding-top: 0px;
+  text-align: left;
+  border-bottom: 1px solid black; }
+
+section textarea {
+  padding: 5px;
+  width: 100%; }
+
+section input {
+  float: left; }
+
+section .counter {
+  float: right;
+  margin-right: 5px;
+  font-family: Roboto Condensed; }
+
+section .notValid {
+  color: red; }
+
+section .inputTooLarge {
+  text-align: center;
+  margin-top: 1px;
+  display: none;
+  color: red; }
+
+section .inputEmpty {
+  text-align: center;
+  margin-top: 1px;
+  display: none;
+  color: red; }
+
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #eee;
+  opacity: 0.6; }
+
+article.tweet header {
+  text-align: left;
+  padding: 10px;
+  height: 70px;
+  margin-bottom: 10px; }
+
+article.tweet header h2 {
+  line-height: 10px;
+  margin-top: -40px;
+  margin-left: 65px; }
+
+article.tweet header p {
+  margin: 0px;
+  margin-top: -30px;
+  line-height: 10px;
+  text-align: right; }
+
+article.tweet header img {
+  border-radius: 5px; }
+
+article.tweet main {
+  display: flex;
+  white-space: pre-line;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  height: 120px;
+  width: 384px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  text-align: left; }
+
+article.tweet footer {
+  display: inline-block;
+  padding: 5px;
+  text-align: left;
+  background: white;
+  height: 50px;
+  line-height: 5px; }
+
+article.tweet footer div {
+  text-align: right;
+  margin-top: -15px; }
+
+article.tweet footer p {
+  margin-top: 10px;
+  display: block;
+  font-size: 13px; }
+
+.flex-item {
+  justify-content: right; }
+
+article.tweet:hover {
+  opacity: 1.0; }
+
+article.tweet:first-child {
+  margin-bottom: 20px; }
+
+article.tweet:last-child {
+  margin-top: 50px; }
+
+div.footer-icons {
+  display: none;
+  margin-top: 15px; }
+
+div.footer-icons i {
+  font-style: normal;
+  color: #66c5b7; }
+
+div.footer-icons a {
+  text-decoration: none; }
+
+section#tweets-container {
+  display: flex;
+  flex-direction: column-reverse; }
+
+/*# sourceMappingURL=style.css.map */

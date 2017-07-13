@@ -1,6 +1,7 @@
+$flex : flex;
 
 article.tweet {
-  display: flex;
+  display: $flex;
   flex-direction: column;
   height: 200px;
   margin-top: 2em;
@@ -78,11 +79,12 @@ article.tweet:hover{
   opacity: 1.0;
 }
 
-
-/*article.tweet:hover div{
-  display: block;
-  text-align: right;
-}*/
+article.tweet:first-child {
+  margin-bottom: 20px;
+}
+article.tweet:last-child {
+  margin-top: 50px;
+}
 
 div.footer-icons{
   display: none;
@@ -99,14 +101,7 @@ div.footer-icons a{
   text-decoration: none;
 }
 
-article.tweet:first-child {
-  margin-bottom: 20px;
-}
-article.tweet:last-child {
-  margin-top: 50px;
-}
-
 section#tweets-container {
-  display: flex;
+  display: $flex;
   flex-direction: column-reverse;
 }
