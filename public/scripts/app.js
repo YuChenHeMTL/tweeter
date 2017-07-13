@@ -76,10 +76,9 @@ var data = [
   }
 
   function getTimeDifference (timeStart){
-    let currentTime = new Date();
-    currentTime = currentTime.getTime();
+    let currentTime = new Date().getTime();
     let timeDifference = currentTime - timeStart;
-    timeDifference = Math.floor(timeDifference/1000);
+    timeDifference = Math.floor(timeDifference/1000 - 728);
     numberSeconds = timeDifference;
     numberMinutes = Math.floor(timeDifference/60);
     numberHours = Math.floor(timeDifference/60/60)
@@ -87,41 +86,41 @@ var data = [
     numberMonths = Math.floor(timeDifference/60/60/24/30);
     numberYears = Math.floor(timeDifference/60/60/24/365);
     if (numberMonths < 12 && numberMonths > 0){
-      if (numberMonths = 1){
+      if (numberMonths === 1){
         return numberMonths + " month ago"
       } else {
         return numberMonths + " months ago"
       }
     } else if (numberDays < 30 && numberDays > 0) {
-      if (numberDays = 1){
+      if (numberDays === 1){
         return numberDays + " day ago"
       } else {
         return numberDays + " days ago"
       }
 
     } else if (numberHours < 24 && numberHours > 0) {
-      if (numberHours = 1){
+      if (numberHours === 1){
       return numberHours + " hour ago"
       } else {
       return numberHours + " hours ago"
       }
 
     } else if (numberMinutes < 60 && numberMinutes > 0){
-      if (numberMinutes = 1){
+      if (numberMinutes === 1){
       return numberMinutes + " minute ago"
       } else {
       return numberMinutes + " minutes ago"
       }
 
     } else if (numberSeconds < 60){
-      if (numberSeconds < 1){
+      if (numberSeconds === 1){
       return numberSeconds + " second ago"
       } else {
       return numberSeconds + " seconds ago"
       }
 
     } else {
-      if (numberYears = 1){
+      if (numberYears === 1){
       return numberYears + " year ago"
       } else {
       return numberYears + " years ago"
@@ -159,7 +158,9 @@ var data = [
         method: 'POST',
         data: $(this).closest("form").find("textarea").serialize(),
         success: function (alltweets) {
+          $(".tweets-container").empty();
           loadTweets();
+          // loadLastTweet();
           }
         })
         $(this).closest(".new-tweet").find("textarea").val("");
@@ -178,6 +179,17 @@ var data = [
       }
     });
   }
+  function loadLastTweet(){
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    success: function (alltweets) {
+      console.log([alltweets[alltweets.length -1]])
+      renderTweets([alltweets[alltweets.length -1]]);
+      }
+    });
+  }
+
 })
 
 
