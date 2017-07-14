@@ -8,6 +8,11 @@ $(document).ready(function (){
 
 //The main function that creates each tweets when it receives an object
 //it gives css attributes to elements as they are created
+// Likes
+// create a like counter
+// create a button for heart
+// create a form for the button
+// set the type as submit
 
   function createTweetElement (obj){
       let article = $("<article>").addClass("tweet");
@@ -18,11 +23,11 @@ $(document).ready(function (){
       let h2 = $("<h2>").text(obj.user.name);
       let pHandle= $("<p>").text(obj.user.handle);
       let pContent = $("<p>").text(obj.content.text);
-      let pTime = $("<p>").text(getTimeDifference(obj.created_at));
+      let pTime = $("<p>").text(`${getTimeDifference(obj.created_at)} ${obj.likes} likes`);
       let divIcon = $("<div>").addClass("footer-icons");
-      let iFlag = $("<i>").addClass("btn flag hover");
-      let iRotate = $("<i>").addClass("btn rotate hover");
-      let iHeart = $("<i>").addClass("btn heart hover");
+      let iFlag = $("<i>").addClass("fa fa-flag hover");
+      let iRotate = $("<i>").addClass("fa fa-retweet hover");
+      let iHeart = $("<i>").addClass("fa fa-heart hover button").data("ObjectId", obj._id);
       divIcon.append(iFlag, iRotate, iHeart);
       twheader.append(img, h2, pHandle);
       twmain.append(pContent);
@@ -85,8 +90,8 @@ $(document).ready(function (){
     } else if (numberSeconds < 60){
       //if the number of seconds is between 60 and 0, display the number of seconds
 
-      if (numberSeconds === 1){
-      return numberSeconds + " second ago";
+      if (numberSeconds === 0){
+      return "Just Now";
       } else {
       return numberSeconds + " seconds ago";
       }
@@ -110,13 +115,10 @@ $(document).ready(function (){
     }
   }
 
-  //calling the function renderTweets
-  loadTweets();
-
   // This function processes the textarea of the form of submission
 
   function submitData (){
-    $("form").on("submit", function (event){
+    $("#main-text").on("submit", function (event){
       event.preventDefault();
 
       //prevent the automatic submission of the form
@@ -149,9 +151,8 @@ $(document).ready(function (){
         method: 'POST',
         data: $(this).closest("form").find("textarea").serialize(),
         success: function (alltweets) {
-          $(".tweets-container").empty();
+          $("#tweets-container").empty();
           loadTweets();
-          // loadLastTweet();
           }
         });
         $(this).closest(".new-tweet").find("textarea").val("");
@@ -176,6 +177,30 @@ $(document).ready(function (){
     });
   }
 
+  //calling the function renderTweets
+  loadTweets();
+
+  $("#tweets-container").on("click", ".button", function(){
+    let someID = $(this).data("ObjectId");
+      $(this).closest(".fa.fa-heart").css("color", "#079b62");
+      $.ajax({
+        url:`/tweets/${someID}/like`,
+        method: "POST",
+        data: {someID: someID}
+      }).done(function (){
+        // $("#tweets-container").empty();
+        // loadTweets();
+        location.reload();
+      });
+    // }else if ($(this).css("color") === "#079b62"){
+    //   $(this).closest(".fa.fa-heart").css("color", "#66c5b7");
+    //   $.ajax({
+    //     url:`/tweets/${someID}/unlike`,
+    //     method: "POST",
+    //     data: {someID: someID}
+    //   }).done(function (){
+    //     // $("#tweets-container").empty();
+    //     // loadTweets();
+    //   });
+  })
 });
-
-

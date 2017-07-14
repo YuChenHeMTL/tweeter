@@ -28,15 +28,6 @@ main {
   background: white;
   text-align: center; }
 
-.btn .flag::before {
-  font-family: fontAwesome;
-  content: "\f024\00a0"; }
-.btn .rotate::before {
-  font-family: fontAwesome;
-  content: "\f079\00a0"; }
-.btn .heart::before {
-  font-family: fontAwesome;
-  content: "\f004\00a0"; }
 
 button.compose::before {
   font-family: fontAwesome;
@@ -74,7 +65,6 @@ button.compose::before {
   background-color: #e7fdff; }
 
 section.new-tweet {
-  display: none;
   height: 160px;
   margin-top: 120px;
   margin-right: 2em;
@@ -194,17 +184,18 @@ article.tweet:last-child {
 
 div.footer-icons {
   display: none;
-  margin-top: 15px; }
-
+}
 div.footer-icons i {
   font-style: normal;
+  margin-top: -10px;
+  margin-left: 5px;
   color: #66c5b7; }
 
 div.footer-icons a {
   text-decoration: none; }
 
+
 section#tweets-container {
   display: flex;
   flex-direction: column-reverse; }
-
 /*# sourceMappingURL=style.css.map */

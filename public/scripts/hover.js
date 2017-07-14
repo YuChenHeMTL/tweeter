@@ -3,7 +3,7 @@ $(document).ready(function (){
     $(this).find(".footer-icons").show();
   })
   $("#tweets-container").on("mouseleave", ".tweet", function (){
-    $(this).find(".footer-icons").hide()
+    $(this).find(".footer-icons").hide();
   })
 })
 

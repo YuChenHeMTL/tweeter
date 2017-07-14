@@ -13,8 +13,10 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "chance": "^1.0.2",
+    "dotenv": "^4.0.0",
     "express": "^4.13.4",
     "md5": "^2.1.0",
+    "method-override": "^2.3.9",
     "mongodb": "^2.2.30",
     "sass": "^1.0.0-beta.1"
   },
