@@ -198,4 +198,10 @@ div.footer-icons a {
 section#tweets-container {
   display: flex;
   flex-direction: column-reverse; }
+
+@media handheld and (orientation: portrait){
+  main {
+    margin:0;
+  }
+}
 /*# sourceMappingURL=style.css.map */
