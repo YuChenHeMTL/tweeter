@@ -55,6 +55,16 @@ button.compose::before{
   font-family:$Awesome;
   content: "\f044\00a0";
 }
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+  #nav-bar button {
+    margin-left : 0;
+  }
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
