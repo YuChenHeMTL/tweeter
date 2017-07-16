@@ -42,9 +42,6 @@ button.compose::before {
   font-family: fontAwesome;
   content: "\f044\00a0"; }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
-  #nav-bar button {
-    margin-left: 0; } }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
@@ -76,6 +73,11 @@ button.compose::before {
   color: #37b29f;
   background-color: #e7fdff; }
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #nav-bar {
+    padding-left: 1em; }
+    #nav-bar button {
+      margin-left: 17%; } }
 section.new-tweet {
   display: none;
   height: 160px;
