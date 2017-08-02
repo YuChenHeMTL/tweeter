@@ -22,3 +22,5 @@ It uses HTML and plain ol' CSS3 as basic structure and AJAX and JQuery to delive
 
 - Install all dependencies (using the `npm install` command).
 - Run the development web server using the `node express_server.js` command.
+
+And finally, if you want to experience the app directly, visit https://piscine-fromage-72307.herokuapp.com/ to see it on Heroku
